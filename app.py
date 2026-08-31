@@ -25,7 +25,8 @@ footer {
 }
 </style>
 """, unsafe_allow_html=True)
-""", unsafe_allow_html=True)# Exibição da Logo
+
+# Exibição da Logo
 if os.path.exists("logo.png"):
     st.image("logo.png", width=200)
 elif os.path.exists("logo.jpg"):
