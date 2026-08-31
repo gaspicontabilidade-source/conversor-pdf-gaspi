@@ -3,28 +3,38 @@ import pymupdf
 from pdf2docx import Converter
 import streamlit as st
 
-# Configuração da página e visual
+# Configuração da página
 st.set_page_config(
     page_title="Conversor de Documentos - GASPI Contabilidade",
     page_icon="📄",
     layout="centered"
 )
 
-# Estilização CSS para aplicar fontes e cores institucionais
+# Estilização CSS responsiva e legível em tema claro e escuro
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
     
     html, body, [class*="css"], .stApp {
         font-family: 'Montserrat', sans-serif !important;
     }
     
+    /* Títulos e textos com alto contraste */
     .main-title {
         color: #1A365D;
         font-weight: 700;
-        font-size: 26px;
-        margin-top: -10px;
-        margin-bottom: 5px;
+        font-size: 28px;
+        margin-top: 10px;
+        margin-bottom: 6px;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        .main-title {
+            color: #63B3ED !important;
+        }
+        .sub-title {
+            color: #E2E8F0 !important;
+        }
     }
     
     .sub-title {
@@ -33,34 +43,46 @@ st.markdown("""
         margin-bottom: 25px;
     }
     
+    /* Estilização dos botões da GASPI */
     div.stButton > button {
         background-color: #1A365D !important;
-        color: white !important;
+        color: #FFFFFF !important;
         font-weight: 600 !important;
         border-radius: 8px !important;
-        padding: 10px 24px !important;
+        padding: 12px 24px !important;
         border: none !important;
         width: 100% !important;
         font-family: 'Montserrat', sans-serif !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease-in-out;
     }
     
     div.stButton > button:hover {
         background-color: #2B6CB0 !important;
-        color: white !important;
+        color: #FFFFFF !important;
+        transform: translateY(-1px);
+    }
+    
+    /* Indicador de container e padding */
+    .block-container {
+        padding-top: 2rem !important;
+        padding-bottom: 3rem !important;
     }
     </style>
 """, unsafe_allow_html=True)
 
 # Exibição da Logo
 if os.path.exists("logo.png"):
-    st.image("logo.png", width=220)
+    st.image("logo.png", width=200)
 elif os.path.exists("logo.jpg"):
-    st.image("logo.jpg", width=220)
+    st.image("logo.jpg", width=200)
+elif os.path.exists("logo.jpeg"):
+    st.image("logo.jpeg", width=200)
 
 st.markdown('<div class="main-title">Conversor Interno de Documentos</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-title">Plataforma segura da <b>GASPI Contabilidade</b> para conversão de arquivos.</div>', unsafe_allow_html=True)
 
-# Upload de arquivos
+# Área de Upload de arquivos
 uploaded_files = st.file_uploader(
     "Arraste ou selecione os arquivos PDF aqui", 
     type=["pdf"], 
