@@ -1,5 +1,5 @@
 import os
-import PyMuPDF
+import pymupdf
 from pdf2docx import Converter
 import streamlit as st
 
