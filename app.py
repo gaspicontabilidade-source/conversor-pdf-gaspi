@@ -1,5 +1,9 @@
 import os
-import fitz  # Compatível com o ambiente Linux do Streamlit Cloud
+try:
+    import fitz
+except ImportError:
+    import pymupdf as fitz
+
 from pdf2docx import Converter
 import streamlit as st
 
@@ -10,7 +14,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# Estilização CSS para aplicar fontes e cores institucionais
+# Estilização CSS para fontes e cores
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
