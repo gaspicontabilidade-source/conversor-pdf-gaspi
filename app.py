@@ -1,5 +1,5 @@
 import os
-import fitz  # PyMuPDF
+import PyMuPDF
 from pdf2docx import Converter
 import streamlit as st
 
@@ -57,7 +57,7 @@ if uploaded_files:
 
             # --- CONVERSÃO PARA PDF/A ---
             elif opcao == "Converter PDF para PDF/A (Arquivamento)":
-                doc = fitz.open(stream=file_bytes, filetype="pdf")
+                doc = pymupdf.open(stream=file_bytes, filetype="pdf")
                 pdfa_output_path = f"{original_name}_PDFA.pdf"
                 
                 doc.save(
