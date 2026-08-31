@@ -1,9 +1,5 @@
 import os
-try:
-    import fitz
-except ImportError:
-    import pymupdf as fitz
-
+import pymupdf
 from pdf2docx import Converter
 import streamlit as st
 
@@ -14,7 +10,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# Estilização CSS para fontes e cores
+# Estilização CSS para aplicar fontes e cores institucionais
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
@@ -109,7 +105,7 @@ if uploaded_files:
 
             # --- CONVERSÃO PARA PDF/A (ARQUIVAMENTO) ---
             elif opcao == "Converter PDF para PDF/A (Padrão de Arquivamento)":
-                doc = fitz.open(stream=file_bytes, filetype="pdf")
+                doc = pymupdf.open(stream=file_bytes, filetype="pdf")
                 pdfa_output_path = f"{original_name}_PDFA.pdf"
                 
                 doc.save(
