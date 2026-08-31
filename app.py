@@ -12,64 +12,8 @@ st.set_page_config(
 
 # Estilização CSS responsiva e legível em tema claro e escuro
 st.markdown("""
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-    
-    html, body, [class*="css"], .stApp {
-        font-family: 'Montserrat', sans-serif !important;
-    }
-    
-    /* Títulos e textos com alto contraste */
-    .main-title {
-        color: #1A365D;
-        font-weight: 700;
-        font-size: 28px;
-        margin-top: 10px;
-        margin-bottom: 6px;
-    }
-    
-    @media (prefers-color-scheme: dark) {
-        .main-title {
-            color: #63B3ED !important;
-        }
-        .sub-title {
-            color: #E2E8F0 !important;
-        }
-    }
-    
-    .sub-title {
-        color: #4A5568;
-        font-size: 15px;
-        margin-bottom: 25px;
-    }
-    
-    /* Estilização dos botões da GASPI */
-    div.stButton > button {
-        background-color: #1A365D !important;
-        color: #FFFFFF !important;
-        font-weight: 600 !important;
-        border-radius: 8px !important;
-        padding: 12px 24px !important;
-        border: none !important;
-        width: 100% !important;
-        font-family: 'Montserrat', sans-serif !important;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.2s ease-in-out;
-    }
-    
-    div.stButton > button:hover {
-        background-color: #2B6CB0 !important;
-        color: #FFFFFF !important;
-        transform: translateY(-1px);
-    }
-    
-    /* Indicador de container e padding */
-    .block-container {
-        padding-top: 2rem !important;
-        padding-bottom: 3rem !important;
-    st.markdown("""
 <style>
-/* Oculta barra superior e menu Streamlit para integração no portal */
+/* Oculta barra superior e menu do Streamlit para integração no portal */
 header[data-testid="stHeader"] {
     display: none !important;
 }
@@ -80,6 +24,7 @@ footer {
     visibility: hidden !important;
 }
 </style>
+""", unsafe_allow_html=True)
 """, unsafe_allow_html=True)# Exibição da Logo
 if os.path.exists("logo.png"):
     st.image("logo.png", width=200)
