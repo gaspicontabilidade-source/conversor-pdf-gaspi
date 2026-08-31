@@ -67,10 +67,9 @@ st.markdown("""
     .block-container {
         padding-top: 2rem !important;
         padding-bottom: 3rem !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
-/* Oculta a barra superior e menu do Streamlit para integração limpa no portal */
+    st.markdown("""
+<style>
+/* Oculta barra superior e menu Streamlit para integração no portal */
 header[data-testid="stHeader"] {
     display: none !important;
 }
@@ -80,8 +79,8 @@ footer {
 #MainMenu {
     visibility: hidden !important;
 }
-
-# Exibição da Logo
+</style>
+""", unsafe_allow_html=True)# Exibição da Logo
 if os.path.exists("logo.png"):
     st.image("logo.png", width=200)
 elif os.path.exists("logo.jpg"):
