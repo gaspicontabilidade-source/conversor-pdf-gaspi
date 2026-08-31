@@ -70,6 +70,16 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+/* Oculta a barra superior e menu do Streamlit para integração limpa no portal */
+header[data-testid="stHeader"] {
+    display: none !important;
+}
+footer {
+    display: none !important;
+}
+#MainMenu {
+    visibility: hidden !important;
+}
 
 # Exibição da Logo
 if os.path.exists("logo.png"):
